@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    body 
+        {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: left ;
+        }
+    </style>
+</head>
+<body>
+    <br><br><br>
+    <input type="text" id="n1">
+    <input type="button" value="EVALUATE" onclick="myfun()">
+    <br><br><br>
+    &ensp; <h3> FACTORIAL</h3>
+    <p id="facto"></p>
+    <hr><br>
+    <h3> MULTIPLICATION TABLE</h3>
+    <p id="mul"></p>
+    <hr><br>
+    <h3>FACTORS</h3>
+    <p id="fac"></p>
+    <hr><br>
+    <h3>PRIME / COMPOSITE</h3>
+    <p id="prime"></p>
+
+    <script>
+        function myfun() {
+            var f = 1, i, c = 0;
+            var a = document.getElementById("n1").value;
+            for (i = 1; i <= a; i++)
+                f = f * i;
+            document.getElementById("facto").innerHTML = f;
+            // Multiplication table
+            for (i = 1; i < 10; i++)
+                document.getElementById("mul").innerHTML += (a + "*" + i + "=" + a * i + "<br>");
+            // Factors calculation
+            for (i = 1; i <= a; i++) {
+                if (a % i == 0)
+                    document.getElementById("fac").innerHTML += i + "<br>";
+            }
+            // Prime or Composite calculation
+            for (i = 1; i <= a; i++) {
+                if (a % i == 0)
+                    c++;
+            }
+            if (c == 2)
+                document.getElementById("prime").innerHTML = a + " is Prime";
+            else
+                document.getElementById("prime").innerHTML = a + " is Composite";
+        }
+    </script>
+</body>
+</html>
